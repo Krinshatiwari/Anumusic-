@@ -3,16 +3,16 @@
 from pyrogram import filters
 from pyrogram.types import Message
 
-from LearningBots import app
-from LearningBots.utils import extract_user, int_to_alpha
-from LearningBots.utils.database import (
+from Anu import app
+from Anu.utils import extract_user, int_to_alpha
+from Anu.utils.database import (
     delete_authuser,
     get_authuser,
     get_authuser_names,
     save_authuser,
 )
-from LearningBots.utils.decorators import AdminActual, language
-from LearningBots.utils.inline import close_markup
+from Anu.utils.decorators import AdminActual, language
+from Anu.utils.inline import close_markup
 from config import BANNED_USERS, adminlist
 
 
