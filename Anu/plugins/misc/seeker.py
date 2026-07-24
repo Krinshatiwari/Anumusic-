@@ -2,8 +2,8 @@
 
 import asyncio
 
-from LearningBots.misc import db
-from LearningBots.utils.database import get_active_chats, is_music_playing
+from Anu.misc import db
+from Anu.utils.database import get_active_chats, is_music_playing
 
 
 async def timer():
