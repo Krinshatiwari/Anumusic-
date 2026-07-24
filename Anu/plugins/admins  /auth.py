@@ -1,4 +1,4 @@
-# Powered By Team Krishna_gBots
+# Powered By Team Krishna_Bots
 
 from pyrogram import filters
 from pyrogram.types import Message
