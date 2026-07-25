@@ -79,7 +79,7 @@ def language_markup(current_lang: str):
             buttons.append(row)
             row = []
     if row: buttons.append(row)
-    buttons.append([InlineKeyboardButton(convert_to_special_font("« Back"), callback_data="autoplay_back", style=ButtonStyle.PRIMARY)])
+    buttons.append([InlineKeyboardButton(convert_to_special_font("« Bᴀᴄᴋ"), callback_data="autoplay_back", style=ButtonStyle.PRIMARY)])
     return InlineKeyboardMarkup(buttons)
 
 def mood_markup(current_mood: str):
@@ -92,7 +92,7 @@ def mood_markup(current_mood: str):
             buttons.append(row)
             row = []
     if row: buttons.append(row)
-    buttons.append([InlineKeyboardButton(convert_to_special_font("« Back"), callback_data="autoplay_back", style=ButtonStyle.PRIMARY)])
+    buttons.append([InlineKeyboardButton(convert_to_special_font("« Bᴀᴄᴋ"), callback_data="autoplay_back", style=ButtonStyle.PRIMARY)])
     return InlineKeyboardMarkup(buttons)
 
 def autoplay_text(status: bool, lang: str, mood: str):
