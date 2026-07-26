@@ -46,7 +46,7 @@
 
 ## 🔑 What is the API Key?
 
-> A **Music API Key** by LearningBots gives you powerful music fetching, blazing-fast downloads, rich metadata, and seamless YouTube support.  
+> A **Music API Key** bykrishna_bots & Shuritibots gives you powerful music fetching, blazing-fast downloads, rich metadata, and seamless YouTube support.  
 > But we dont have that api you can find some else and use
 ---
 
