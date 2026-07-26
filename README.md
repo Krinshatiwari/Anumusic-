@@ -29,14 +29,14 @@
 
 ## 🎧 Advanced Telegram Group Music Bot
 
-> A modern Telegram bot for high-quality group music streaming using PyTgCalls and LearningBots’s powerful Music API key.
+> A modern Telegram bot for high-quality group music streaming using PyTgCalls and  powerful Music API key.
 
 ---
 
 ## ✨ Features
 
 - 🎵 Stream music in group voice/video chats
-- 🚀 Lightning-fast, stable, and scalable performance
+- 🚀 Krishna_bots -fast, stable, and scalable performance
 - 🖼️ Dynamic thumbnails with song metadata
 - 🎛️ Admin dashboard and playback controls
 - 🧠 Intelligent queue management system
@@ -113,7 +113,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash 
 
 **3. Clone Project**
 ```bash
-git clone https://github.com/tiwariji890/Anumusic-
+git clone https://github.com/Krishna-The-Fucker/Anumusic-
 cd music
 pip3 install -U -r requirements.txt
 ```
