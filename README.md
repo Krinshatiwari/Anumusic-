@@ -16,11 +16,11 @@
 
 
 <p align="center">
-    <a href="https://github.com/tiwariji890/Anumusic-/Music/stargazers">
+    <a href="https://github.com/Krishna-The-Fucker/Anumusic-/stargazers">
         <img src="https://img.shields.io/github/stars/KRISHNA_BOTS/Music?color=ffd700&style=for-the-badge&logo=github" />
     </a>
-    <a href="https://github.com/tiwariji890/Anumusic-/Music/network/members">
-        <img src="https://img.shields.io/github/forks/tiwariji890/Anumusic-/Music?color=blue&style=for-the-badge&logo=github" />
+    <a href="https://github.com/Krishna-The-Fucker/Anumusic-/network/members">
+        <img src="https://img.shields/https://github.com/Krishna-The-Fucker/Anumusic-?color=blue&style=for-the-badge&logo=github" />
     </a>
 <br>
 
@@ -92,7 +92,7 @@
 <details>
 <summary><b>🔹 Deploy to Heroku</b></summary>
 
-[![Deploy](https://img.shields.io/badge/Deploy%20to-Heroku-4700f5?style=for-the-badge&logo=heroku)](https://dashboard.heroku.com/new?template=https://github.com/tiwariji890/Anumusic-)
+[![Deploy](https://img.shields.io/badge/Deploy%20to-Heroku-4700f5?style=for-the-badge&logo=heroku)](https://dashboard.heroku.com/new?template=https://github.com/Krishna-The-Fucker/Anumusic-)
 
 </details>
 
@@ -169,4 +169,4 @@ STRING_SESSION=YOUR_STRING_SESSION
 ## 📄 License
 
 > Licensed under the <b>MIT License</b>.
-See <a href="https://github.com/tiwariji890/Anumusic-/Anu/LICENSE">LICENSE</a> for  Krishna_Bots
+See <a href="https://github.com/Krishna-The-Fucker/Anumusic-/LICENSE">LICENSE</a> for  Krishna_Bots
