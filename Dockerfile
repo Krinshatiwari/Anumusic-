@@ -1,23 +1,29 @@
-FROM nikolaik/python-nodejs:python3.10-nodejs19
+FROM python:3.10-bookworm
 
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends curl ffmpeg ca-certificates gnupg \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+ENV DEBIAN_FRONTEND=noninteractive
 
-ENV NVM_DIR=/root/.nvm
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash && \
-    . "$NVM_DIR/nvm.sh" && \
-    nvm install v18 && \
-    nvm alias default v18 && \
-    nvm use v18 && \
-    npm install -g npm && \
-    echo ". $NVM_DIR/nvm.sh" >> /root/.bashrc
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    ffmpeg \
+    git \
+    curl \
+    gcc \
+    g++ \
+    make \
+    python3-dev \
+    libffi-dev \
+    libssl-dev && \
+    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
-COPY . /app/
 
-RUN pip3 install --no-cache-dir -U -r requirements.txt
-RUN chmod +x /app/start
+COPY requirements.txt .
 
-CMD ["bash", "-c", "source ~/.bashrc && bash start"]
+RUN pip install --upgrade pip setuptools wheel
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+RUN chmod +x start
+
+CMD ["bash", "start"]
