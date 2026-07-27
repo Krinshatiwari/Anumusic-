@@ -14,7 +14,7 @@ def start_panel(_):
         [
             InlineKeyboardButton(
                 text=_["S_B_5"],
-                url="https://github.com/tiwariji890/Anumusic-"
+                url="https://files.catbox.moe/c30eoi.mp4"
             )
         ]
     ]
@@ -41,7 +41,7 @@ def private_panel(_):
         ],
         [
             InlineKeyboardButton(text=_["S_B_7"], url=config.SUPPORT_CHANNEL), 
-            InlineKeyboardButton(text=_["S_B_5"], url="https://github.com/tiwariji890/Anumusic-")
+            InlineKeyboardButton(text=_["S_B_5"], url="https://files.catbox.moe/c30eoi.mp4")
         ]
     ]
     return buttons
