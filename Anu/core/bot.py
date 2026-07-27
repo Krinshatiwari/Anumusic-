@@ -1,7 +1,10 @@
-import uvloop
-uvloop.install()
-
 import asyncio
+
+try:
+    asyncio.get_running_loop()
+except RuntimeError:
+    asyncio.set_event_loop(asyncio.new_event_loop())
+
 from pyrogram import Client, errors
 from pyrogram.enums import ChatMemberStatus, ParseMode
 
@@ -11,7 +14,7 @@ from ..logging import LOGGER
 
 class Anony(Client):
     def __init__(self):
-        LOGGER(__name__).info("🛠️ Initializing Anu music Bot...")
+        LOGGER(__name__).info("🛠️ Initializing Anu Music Bot...")
         super().__init__(
             name="LearningBots",
             api_id=config.API_ID,
@@ -42,30 +45,32 @@ class Anony(Client):
             )
         except (errors.ChannelInvalid, errors.PeerIdInvalid):
             LOGGER(__name__).error(
-                "❌ Unable to send message to the log group/channel. "
-                "Ensure the bot is added and not banned."
+                "❌ Unable to send message to the log group/channel."
             )
-            exit()
+            raise SystemExit
+
         except Exception as ex:
             LOGGER(__name__).error(
-                f"❌ Failed to access the log group/channel.\nReason: {type(ex).__name__}"
+                f"❌ Failed to access the log group/channel: {type(ex).__name__}"
             )
-            exit()
+            raise SystemExit
 
         try:
             member = await self.get_chat_member(config.LOGGER_ID, self.id)
             if member.status != ChatMemberStatus.ADMINISTRATOR:
                 LOGGER(__name__).error(
-                    "⚠️ Bot is not an admin in the log group/channel. Please promote it as admin."
+                    "⚠️ Bot must be admin in LOGGER_ID chat."
                 )
-                exit()
+                raise SystemExit
         except Exception as ex:
             LOGGER(__name__).error(
-                f"❌ Failed to fetch bot status in log group. Reason: {type(ex).__name__}"
+                f"❌ Failed to check admin status: {type(ex).__name__}"
             )
-            exit()
+            raise SystemExit
 
-        LOGGER(__name__).info(f"🎶 Bot is online and ready as {self.name} (@{self.username})")
+        LOGGER(__name__).info(
+            f"🎶 Bot is online as {self.name} (@{self.username})"
+        )
 
     async def stop(self):
         LOGGER(__name__).info("🛑 Stopping Anu Music Bot...")
