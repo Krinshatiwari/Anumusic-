@@ -18,6 +18,10 @@ from Anu.utils.database import (
     music_off,
     music_on,
     set_loop,
+    # 🔥 ADD THESE
+    is_autoplay,
+    autoplay_on,
+    autoplay_off,
 )
 from Anu.utils.decorators.language import languageCB
 from Anu.utils.formatters import seconds_to_min
@@ -50,20 +54,18 @@ async def del_back_playlist(client, CallbackQuery, _):
     chat_id = int(chat)
     mention = CallbackQuery.from_user.mention
 
-    # ================= AUTOPLAY ADDED =================
+    # ================= AUTOPLAY FIXED =================
     if command == "Autoplay":
         await CallbackQuery.answer()
 
-        state = db.get(f"autoplay_{chat_id}", False)
-
-        if state:
-            db[f"autoplay_{chat_id}"] = False
+        if await is_autoplay(chat_id):
+            await autoplay_off(chat_id)
             return await CallbackQuery.message.reply_text(
                 f"➻ Autoplay Disabled ❌\n│ \n└ʙʏ : {mention} 🥀",
                 reply_markup=close_markup(_),
             )
         else:
-            db[f"autoplay_{chat_id}"] = True
+            await autoplay_on(chat_id)
             return await CallbackQuery.message.reply_text(
                 f"➻ Autoplay Enabled ⚡\n│ \n└ʙʏ : {mention} 🥀",
                 reply_markup=close_markup(_),
@@ -97,8 +99,8 @@ async def del_back_playlist(client, CallbackQuery, _):
     elif command == "Skip":
         check = db.get(chat_id)
 
-        # 🔥 AUTOPLAY LOGIC HERE
-        if db.get(f"autoplay_{chat_id}", False):
+        # 🔥 AUTOPLAY LOGIC FIXED
+        if await is_autoplay(chat_id):
             try:
                 current = check[0]["title"]
                 search = f"{current} next song"
