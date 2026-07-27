@@ -6,8 +6,8 @@ from typing import Union
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Voice
 
 import config
-from LearningBots import app
-from LearningBots.utils.formatters import (
+from Anu import app
+from Anu.utils.formatters import (
     check_duration,
     convert_bytes,
     get_readable_time,
