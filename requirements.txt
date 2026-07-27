@@ -1,7 +1,6 @@
 aiofiles
 aiohttp
 apscheduler
-asyncio
 beautifulsoup4
 dnspython
 ffmpeg-python
@@ -26,4 +25,3 @@ git+https://github.com/yt-dlp/yt-dlp.git@master
 youtube-search
 youtube-search-python
 py-yt-search
-uvloop
