@@ -119,7 +119,7 @@ class TeleAPI:
                 percentage = current * 100 / total
                 percentage = str(round(percentage, 2))
                 speed = current / check_time
-              eta = int((total - current) / speed)
+                eta = int((total - current) / speed)
                 eta = get_readable_time(eta)
                 if not eta:
                     eta = "0 sᴇᴄᴏɴᴅs"
