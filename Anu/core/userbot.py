@@ -1,3 +1,4 @@
+import asyncio
 from pyrogram import Client
 import config
 from ..logging import LOGGER
@@ -72,6 +73,9 @@ class Userbot(Client):
             assistantids.append(client.id)
 
             LOGGER(__name__).info(f"🤖 Assistant {number} is active as {client.name}")
+            
+            # Telegram flood control se bachne ke liye gap
+            await asyncio.sleep(3)
 
         if config.STRING1:
             await setup_assistant(self.one, 1)
