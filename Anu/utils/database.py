@@ -25,7 +25,7 @@ playtypedb = mongodb.playtypedb
 skipdb = mongodb.skipmode
 sudoersdb = mongodb.sudoers
 usersdb = mongodb.tgusersdb
-
+autoplaydb = mongodb.autoplay
 # Shifting to memory [mongo sucks often]
 active = []
 activevideo = []
@@ -42,7 +42,7 @@ pause = {}
 playmode = {}
 playtype = {}
 skipmode = {}
-
+autoplay = {}
 
 async def get_assistant_number(chat_id: int) -> str:
     assistant = assistantdict.get(chat_id)
@@ -666,3 +666,36 @@ async def remove_banned_user(user_id: int):
     if not is_gbanned:
         return
     return await blockeddb.delete_one({"user_id": user_id})
+
+# ================= AUTOPLAY =================
+
+async def is_autoplay(chat_id: int) -> bool:
+    mode = autoplay.get(chat_id)
+    if mode is None:
+        data = await autoplaydb.find_one({"chat_id": chat_id})
+        if not data:
+            autoplay[chat_id] = False
+            return False
+        
+        autoplay[chat_id] = data.get("state", False)
+        return autoplay[chat_id]
+    
+    return mode
+
+
+async def autoplay_on(chat_id: int):
+    autoplay[chat_id] = True
+    await autoplaydb.update_one(
+        {"chat_id": chat_id},
+        {"$set": {"state": True}},
+        upsert=True
+    )
+
+
+async def autoplay_off(chat_id: int):
+    autoplay[chat_id] = False
+    await autoplaydb.update_one(
+        {"chat_id": chat_id},
+        {"$set": {"state": False}},
+        upsert=True
+                                        )
