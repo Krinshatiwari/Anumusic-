@@ -52,15 +52,17 @@ async def init():
     LOGGER("Anu.plugins").info("Successfully Imported Modules...")
     await userbot.start()
     await Anony.start()
+    
+    # 🔥 FIXED: Voice chat error aane par bot exit nahi hoga, bas warning show karega
     try:
         await Anony.stream_call("https://files.catbox.moe/sji2bj.jpg")
     except NoActiveGroupCall:
-        LOGGER("Anu").error(
-            "[ERROR] - \n\nPlease turn on your Logger Group's Voice Call. Make sure you never close/end voice call in your log group"
+        LOGGER("Anu").warning(
+            "[WARNING] - Logger Group's Voice Call is turned off. Continuing startup without streaming call..."
         )
-        sys.exit()
-    except:
-        pass
+    except Exception as e:
+        LOGGER("Anu").warning(f"[WARNING] - Stream call failed: {e}")
+
     await Anony.decorators()
     LOGGER("Anu").info(
         "Anu Music Bot started successfully"
