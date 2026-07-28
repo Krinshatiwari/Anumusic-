@@ -1,2 +1,2 @@
-from .admins import *
-from .language import *
+from .admins import AdminActual, AdminRightsCheck, ActualAdminCB
+from .language import language
