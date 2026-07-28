@@ -3,7 +3,7 @@ from Anu.misc import SUDOERS
 from Anu.utils.database import get_lang, is_maintenance
 from config import SUPPORT_CHAT
 from strings import get_string
-from LearningBots import app
+from Anu import app
 
 # Setup logger
 logger = logging.getLogger(__name__)
